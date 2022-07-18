@@ -9,4 +9,4 @@ $ npx tailwindcss init
 
 $ npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
 
-to run tailwind
+$ npm run dev : to run the app in a localhost
