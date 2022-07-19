@@ -49,15 +49,6 @@ function AddItem() {
           onClick={AddBtnClicked}
         />
       </div>
-
-      {/* <div className="flex gap-3 w-1/3 ">
-        <button className={styles.addButton} onClick={AddBtnClicked}>
-          Add Task
-        </button>
-        <button className={styles.removeButton} onClick={RemoveBtnClicked}>
-          CleanUp
-        </button>
-      </div> */}
     </div>
   );
 }
