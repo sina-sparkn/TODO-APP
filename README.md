@@ -11,4 +11,4 @@ then write the folowing :
 
 ```$ npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch```
 
-```$ npm run dev : to run the app in a localhost```
+```$ npm run dev ```
