@@ -24,8 +24,16 @@ const itemSlicer = createSlice({
         }
       });
     },
+    ItemUpdated(state, action) {
+      state.map((e) => {
+        if (e.id === action.payload.id) {
+          e.content = action.payload.content;
+        }
+      });
+    },
   },
 });
 
-export const { itemAdded, itemRemoved, ItemDone } = itemSlicer.actions;
+export const { itemAdded, itemRemoved, ItemDone, ItemUpdated } =
+  itemSlicer.actions;
 export default itemSlicer.reducer;
