@@ -1,6 +1,6 @@
 Todo app using redux , react and tailwindcss
 
-in terminal write ($ npm install ) to install everything but tailwind
+in terminal write ```$ npm install``` to install everything but tailwind
 then write the folowing : 
 
 > this is a seltstudy project and I will make improvments overtime
