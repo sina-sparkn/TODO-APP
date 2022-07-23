@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
-  { id: "1", content: "One", Done: false },
-  { id: "2", content: "Two", Done: false },
-  { id: "3", content: "Three", Done: false },
+  { id: "1", content: "One", Done: false, user: "1" },
+  { id: "2", content: "Two", Done: false, user: "3" },
+  { id: "3", content: "Three", Done: false, user: "2" },
 ];
 
 const itemSlicer = createSlice({
@@ -11,8 +11,19 @@ const itemSlicer = createSlice({
   initialState,
 
   reducers: {
-    itemAdded(state, action) {
-      state.push(action.payload);
+    itemAdded: {
+      reducer(state, action) {
+        state.push(action.payload);
+      },
+      prepare(content, useId) {
+        return {
+          payload: {
+            id: nanoid(),
+            content,
+            user: useId,
+          },
+        };
+      },
     },
     itemRemoved(state, action) {
       return state.filter((e) => e.id != action.payload);

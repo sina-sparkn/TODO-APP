@@ -5,7 +5,7 @@ import "../../dist/output.css";
 const styles = {
   main: "relative w-full h-full flex justify-center items-center gap-10 py-10 bg-gradient-to-br from-blue-500 to-indigo-700",
   container:
-    "centerContainer w-96 shrink h-full flex flex-col gap-5 px-4 pl-7 py-7 bg-white rounded-md overflow-y-scroll",
+    "centerContainer w-96 shrink h-full flex flex-col gap-10 px-4 pl-7 py-7 bg-white rounded-md overflow-y-scroll",
   header: "",
 };
 
