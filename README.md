@@ -5,7 +5,7 @@ then write the folowing :
 
 > this is a seltstudy project and I will make improvments overtime
 
-> the ```routerAdded``` branch setup is also these steps
+>``` All of the branches ``` setup is also these following steps
 
 ```$ npm install -D tailwindcss```
 
