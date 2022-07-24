@@ -1,9 +1,36 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
-  { id: "1", content: "One", Done: false, user: "1" },
-  { id: "2", content: "Two", Done: false, user: "3" },
-  { id: "3", content: "Three", Done: false, user: "2" },
+  {
+    id: "3",
+    content: "Three",
+    Done: false,
+    user: "2",
+    reaction: {
+      like: 0,
+      dislike: 0,
+    },
+  },
+  {
+    id: "2",
+    content: "Two",
+    Done: false,
+    user: "3",
+    reaction: {
+      like: 0,
+      dislike: 0,
+    },
+  },
+  {
+    id: "1",
+    content: "One",
+    Done: false,
+    user: "1",
+    reaction: {
+      like: 0,
+      dislike: 0,
+    },
+  },
 ];
 
 const itemSlicer = createSlice({
@@ -13,7 +40,7 @@ const itemSlicer = createSlice({
   reducers: {
     itemAdded: {
       reducer(state, action) {
-        state.push(action.payload);
+        state.unshift(action.payload);
       },
       prepare(content, useId) {
         return {
@@ -21,6 +48,11 @@ const itemSlicer = createSlice({
             id: nanoid(),
             content,
             user: useId,
+            reaction: {
+              like: 0,
+              dislike: 0,
+            },
+            Done: false,
           },
         };
       },
@@ -42,9 +74,19 @@ const itemSlicer = createSlice({
         }
       });
     },
+    reactionAdded(state, action) {
+      state.map((e) => {
+        if (e.id === action.payload.id && action.payload.name === "like") {
+          e.reaction.like += 1;
+        }
+        if (e.id === action.payload.id && action.payload.name === "dislike") {
+          e.reaction.dislike += 1;
+        }
+      });
+    },
   },
 });
 
-export const { itemAdded, itemRemoved, ItemDone, ItemUpdated } =
+export const { itemAdded, itemRemoved, ItemDone, ItemUpdated, reactionAdded } =
   itemSlicer.actions;
 export default itemSlicer.reducer;

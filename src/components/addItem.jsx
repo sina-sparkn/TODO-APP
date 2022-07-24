@@ -9,7 +9,7 @@ const styles = {
   input:
     "outline-none px-6 pr-12 h-12 border border-blue-300 rounded-full grow hover:border-blue-500 hover:border-2 duration-300",
   addButton:
-    "h-12 bg-yellow-400 rounded-md hover:bg-yellow-500 duration-300 grow justify-center",
+    "rounded-full cursor-pointer absolute right-2.5 text-blue-500 hover:text-blue-600 disabled:text-slate-400 disabled:cursor-default duration-300",
   removeButton:
     "h-12 bg-red-500 rounded-md hover:bg-red-600 duration-300 text-white grow",
 };
@@ -24,13 +24,13 @@ function AddItem() {
   const InputChanged = (event) => setContent(event.target.value);
   const userOptionChanged = (event) => setUserId(event.target.value);
 
-  function AddBtnClicked() {
+  const AddBtnClicked = () => {
     if (content) {
       dispatch(itemAdded(content, userId));
       setContent("");
       setUserId("");
     }
-  }
+  };
 
   const canSave = Boolean(content) && Boolean(userId);
 
@@ -49,24 +49,18 @@ function AddItem() {
           className={styles.input}
           onChange={InputChanged}
         />
-        {/* <BsFillArrowDownCircleFill
-          type="button"
-          className="text-blue-500 text-3xl absolute right-2.5 cursor-pointer hover:text-blue-600 duration-300"
-          onClick={AddBtnClicked}
-          disabled={!canSave}
-        /> */}
         <button
-          className="bg-blue-500 rounded-lg px-3 py-3 flex text-white cursor-pointer hover:bg-blue-600 disabled:bg-slate-400 disabled:cursor-default duration-300"
+          className={styles.addButton}
           disabled={!canSave}
           onClick={AddBtnClicked}
         >
-          save
+          <BsFillArrowDownCircleFill className="text-3xl" />
         </button>
       </div>
       <select
         value={userId}
         onChange={userOptionChanged}
-        className="w-full border border-blue-300 rounded-full px-3 py-2 outline-none"
+        className="w-full border border-blue-300 rounded-full px-3 py-2 outline-none hover:border-blue-500 duration-300"
       >
         <option value=""></option>
         {userOptions}

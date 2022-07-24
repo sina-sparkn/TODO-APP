@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import NotFound from "../notFound/404";
 import "../../dist/output.css";
+import Reactions from "./reacions";
 
 function OneTask() {
   const { id } = useParams();
@@ -32,6 +33,7 @@ function OneTask() {
         ) : (
           <h2>"user undefined"</h2>
         )}
+
         <Link to={`/editTasks/${id}`}>
           <button className="px-5 py-2 rounded-full bg-purple-500 text-white hover:bg-purple-600 duration-300 ">
             Edit Task
@@ -42,6 +44,7 @@ function OneTask() {
             back home
           </button>
         </Link>
+        <Reactions />
       </div>
     );
 }
