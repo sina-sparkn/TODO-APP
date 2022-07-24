@@ -1,15 +1,24 @@
-import ItemList from "./components/ItemList";
-import AddItem from "./components/addItem";
+import { Route, Router, Routes } from "react-router-dom";
+import BaseMerged from "./components/merger";
+import OneTask from "./components/oneTaskPage";
+import NotFound from "./notFound/404";
+import EditTask from "./components/editTask";
 import "../dist/output.css";
 
 function App() {
   return (
-    <div className="relative w-full h-full flex justify-center items-center gap-10 py-10 bg-gradient-to-br from-blue-500 to-indigo-700">
-      <div className="centerContainer w-96 shrink h-full flex flex-col gap-5 px-4 pl-7 py-7 bg-white rounded-md overflow-y-scroll">
-        <AddItem />
-        <ItemList />
-      </div>
-    </div>
+    <Routes path="/">
+      <Route index element={<BaseMerged />} />
+      <Route path="tasks">
+        <Route index element={<NotFound />} />
+        <Route path=":id" element={<OneTask />} />
+      </Route>
+      <Route path="editTasks">
+        <Route index element={<NotFound />} />
+        <Route path=":id" element={<EditTask />} />
+      </Route>
+      {/* <Route exact path="/tasks/:taskID" element={<OneTask />} /> */}
+    </Routes>
   );
 }
 
