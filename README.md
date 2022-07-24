@@ -7,6 +7,8 @@ then write the folowing :
 
 >``` All of the branches ``` setup is also these following steps
 
+>```users``` branch merged to ```main```  
+
 ```$ npm install -D tailwindcss```
 
 ```$ npx tailwindcss init```
