@@ -58,7 +58,7 @@ function ItemList() {
   ));
 
   return (
-    <main className="flex flex-col gap-2 items-center justify-center">
+    <main className="flex flex-col gap-3 items-center justify-center">
       {ListItems}
     </main>
   );
