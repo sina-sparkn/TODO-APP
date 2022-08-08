@@ -42,12 +42,12 @@ const itemSlicer = createSlice({
       reducer(state, action) {
         state.unshift(action.payload);
       },
-      prepare(content, useId) {
+      prepare(content, userId) {
         return {
           payload: {
             id: nanoid(),
             content,
-            user: useId,
+            user: userId,
             reaction: {
               like: 0,
               dislike: 0,

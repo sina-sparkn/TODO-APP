@@ -25,10 +25,10 @@ body,
 }
 
 .centerContainer::-webkit-scrollbar-thumb {
-  background: #ffdc96;
+  background: #b1b1b1;
   border-radius: 20px;
 }
 
 .centerContainer::-webkit-scrollbar-thumb:hover {
-  background: #ffd37b;
+  background: #cfcfcf;
 }

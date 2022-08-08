@@ -8,6 +8,7 @@ function OneTask() {
   const { id } = useParams();
   const task = useSelector((state) => state.items.find((key) => key.id === id));
   const allTasks = useSelector((state) => state.items);
+  const nightModeStatus = useSelector((state) => state.nightMode);
 
   const theUser = useSelector((state) =>
     state.users.find((user) => {
@@ -22,11 +23,22 @@ function OneTask() {
   });
   or = Boolean(or);
 
+  let styles;
+  if (nightModeStatus) {
+    styles = {
+      main: "w-full h-full bg-zinc-900 text-white flex flex-col items-center justify-center gap-12",
+    };
+  } else {
+    styles = {
+      main: "w-full h-full flex flex-col items-center justify-center gap-12",
+    };
+  }
+
   if (or === false) {
     return <NotFound />;
   } else
     return (
-      <div className="w-full h-full flex flex-col items-center justify-center gap-12">
+      <div className={styles.main}>
         <h2 className="text-3xl">{task.content}</h2>
         {theUser ? (
           <h2>{`user : ${theUser.name}`}</h2>
